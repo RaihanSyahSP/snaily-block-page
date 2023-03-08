@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,700&display=swap');
+
+.container {
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    background-color: #DD0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    padding: 10px;
+    width: 900px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.description_title {
+    font-size: 80px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.description_content {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.vector-top-left {
+    position: absolute;
+    width: 611.33px;
+    height: 569.3px;
+    left: -20px;
+    top: -10px;
+}
+
+.vector-top-right {
+    position: absolute;
+    width: 1300.19px;
+    height: 603.6px;
+    left: 600px;
+    top: -40px;
+}
+
+.vector-bottom-right {
+    position: absolute;
+    width: 1874px;
+    height: 667px;
+    left: 180px;
+    top: 250px;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer_img {
+    width: 50px;
+}
+
+.footer_desc {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* add media query for responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        /* height: 100%; */
+        position: relative;
+        height: 100vh;
+    }
+    .content {
+        height: 100%;
+        width: 100%;
+    }
+    .description {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .description_title {
+        font-size: 50px;
+    }
+    .description_content {
+        font-size: 20px;
+    }
+    .vector-top-left {
+        width: 20px;
+        left: -150px;
+        top: -20px;
+    }
+    .vector-top-right {
+        display: none;
+    }
+    .vector-bottom-right {
+        display: none;
+    }
+    .footer {
+        margin-top: 10px;
+        position: absolute;
+        top: 10px
+    }
+    .footer_img {
+        width: 30px;
+    }
+    .footer_desc {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 912px) {
+    .container {
+        /* height: 100%; */
+        position: relative;
+        height: 100vh;
+    }
+    .content {
+        height: 100%;
+        width: 100%;
+    }
+    .description {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .vector-top-right {
+        display: none;
+    }
+    .vector-bottom-right {
+        display: none;
+    }   
+}

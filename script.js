@@ -33,7 +33,7 @@ if (jwtToken) {
     const url = 'https://snailly.fajarbuana.my.id/notification/send'
     const postData = {
         childId: childId,
-        id: parentId,
+        parentId: parentId,
         web_url: webUrl
     }
 
@@ -41,9 +41,6 @@ if (jwtToken) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Authorization:
-          // "Bearer " + jwtToken,
-        // "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM3YWIxZTcwLTlkOGEtNGZlOC1hNTA2LTE2NTlmYTVlZDE1MiIsImVtYWlsIjoicmFpaGFuQGdtYWlsLmNvbSIsIm5hbWUiOiJyYWloYW4gc3lhaCIsImlhdCI6MTY4OTA0MzE3MiwiZXhwIjoxNjg5MTI5NTcyfQ.WOO01AvkbAKgIXfaKERETcOy5evbOcM6-i57itZhJXhLtnBzScAh5WnaWHSxTV-zkFYmlisV6Lrd9wZZuC0_obHwpz65RQhijCRyY7-ImQbeB6lO2EyuSnzTJGGG9GWgvdQxrCMLiAiwvo3eGGEC1XinKbmI4TfpxKJDuyM9zug",
       },
       body: JSON.stringify(postData),
     })

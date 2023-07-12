@@ -21,36 +21,43 @@ function decodeJwt(jwtToken) {
   return JSON.parse(jsonPayload);
 }
 
-// Mengambil JWT token dari URL dan mendekodekannya
-const jwtToken = getJwtTokenFromUrl();
-if (jwtToken) {
-  const decodedToken = decodeJwt(jwtToken);
-    console.log(decodedToken);
-     const childId = decodedToken.childId;
-     const webUrl = decodedToken.web_url;
-    const parentId = decodedToken.parentId;
-    
-    const url = 'https://snailly.fajarbuana.my.id/notification/send'
-    const postData = {
+async function sendNotification() {
+  const jwtToken = getJwtTokenFromUrl();
+
+  if (jwtToken) {
+    try {
+      const decodedToken = decodeJwt(jwtToken);
+      const childId = decodedToken.childId;
+      const webUrl = decodedToken.web_url;
+      const parentId = decodedToken.parent.id;
+  
+      const url = 'https://snailly.fajarbuana.my.id/notification/send';
+      const postData = {
         childId: childId,
         parentId: parentId,
         web_url: webUrl
-    }
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Notification sent successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error sending notification:", error);
+      };
+  
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
       });
-} else {
-  console.log('JWT token not found in the URL');
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Notification sent successfully:', data);
+      } else {
+        throw new Error('Error sending notification');
+      }
+    } catch (error) {
+      console.error('Error sending notification:', error);
+    }
+  } else {
+    console.log('JWT token not found in the URL');
+  }
 }
+
+sendNotification();
